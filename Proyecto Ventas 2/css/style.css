@@ -1,0 +1,238 @@
+/* Variables */
+:root{
+    --primario: #0e0367;
+    --primarioOscuro: #524a90;
+    --secundario: #e30800;
+    --secundarioOscuro: rgb(210, 68, 11);
+    --blanco: #FFF;
+    --negro: #000;
+
+    --fuentePrincipal: 'sans-serif', cursive;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+/* Globales ***********************************/
+body{
+    background-color: var(--primario);/* Color de fondo de la página */
+    font-size: 1.6rem; /* Tamaño del texto de la página 16px */
+    line-height: 1.5; /* interlineado, de la base fuente. */
+}
+p{
+    font-size: 1.8rem; /* Tamaño de la letra */
+    font-family: Arial, Helvetica, sans-serif; /* Tipo de letra */
+    color: var(--blanco);
+}
+a{
+    text-decoration: none; /* Quitar el decorado del enlace */
+}
+img{
+    max-width: 100%; /* ancho de las imagenes original */
+    /* width: 100%;  abarca todo el ancho de la pantalla*/
+    border-radius: 40%;
+}
+.contenedor{
+    max-width: 120rem; /* Ancho del contenedor */
+    margin: 0 auto; /* Centrado del contenedor */
+}
+h1, h2, h3{
+    text-align: center; /* Alineación del texto = centrado */
+    color: var(--secundario); /* Color del texto */
+    font-family: var(--fuentePrincipal); /* Tipo de letra */
+}
+h1{
+    font-size: 4rem; /* Tamaño de la letra */
+}
+h2{
+    font-size: 3.2rem; /* Tamaño de la letra */
+}
+h3{
+    font-size: 2.4rem; /* Tamaño de la letra */
+} 
+/* Header ***********************************************/
+.header{
+    display: flex; /* Habilita justify-content */
+    justify-content: center; /* Alineación del objeto */
+}
+.header__logo{
+    margin: 3rem 0 3rem 0; /* Margen que rodea el objeto */
+    border-radius: 15%; /* Redondea las esquinas de la imagen */
+}
+/* Navegación *******************************************/
+.navegacion{
+    background-color: var(--primarioOscuro); /* Color de fondo */
+    padding: 1rem 0 1rem 0; /* Relleno alrededor del objeto */
+    display: flex; /* Habilita justify-content */
+    justify-content: center; /* Alineación del objeto */
+    gap: 2rem; /* Separación de los elementos */
+}
+.navegacion__enlace{
+    font-family: var(--fuentePrincipal); /* Tipo de letra */
+    color: var(--blanco); /* Color de la letra */
+    font-size: 3rem; /* Tamaño de la letra */
+}
+.navegacion__enlace--activo,
+.navegacion__enlace:hover{
+    color: var(--secundario); /* Color cuando se coloca el puntero del ratón */
+}
+/* Grid ****************************************************/
+@media (min-width: 0px){ /* Para tamaños moviles */
+    .grid{
+        display: grid; /* Habilita las disposición en columnas */
+        grid-template-columns: 1fr; /* Cuantas columnas se van a usar = 1 */
+        gap: 2rem; /* Espacio entre columnas */
+    }
+}
+@media (min-width: 480px){ /* Para tamaños superiores a un telefono */
+    .grid{
+        grid-template-columns: repeat(2, 1fr);/* Cuantas columnas se van a usar = 2 */
+    }
+}
+@media (min-width: 780px){/* Para tamaños superiores a una tablet */
+    .grid{
+        grid-template-columns: repeat(3, 1fr);/* Cuantas columnas se van a usar = 3 */
+    }
+}
+/* Productos ***********************************************/
+.producto{
+    background-color: var(--primarioOscuro);/* Color de fondo */
+    padding: 1rem; /* Relleno alrededor de la imagen */
+}
+.producto__nombre{
+    font-size: 4rem; /* Tamaño de la letra */
+}
+.producto__precio{
+    font-size: 2.8rem; /* Tamaño de la letra */
+    color: var(--secundario); /* Color de la letra */
+}
+.producto__nombre,
+.producto__precio{
+    font-family: var(--fuentePrincipal); /* Tipo de letra */
+    margin: 1rem 0;/* Margen que rodea el objeto */
+    text-align: center;/* Alineación del texto = centrado */
+    line-height: 1.2;/* Interlineado */
+}
+/* Graficos ************************************************/
+.grafico{
+    min-height: 30rem; /* Altura minima */
+    background-repeat: no-repeat; /* Para no repetir la imagen */
+    background-size: cover; /* Para que la imagen cubra todo el espacio */
+}
+@media (min-width: 0px){ /* Para tamaño movil */
+    .grafico__camisas{
+        grid-row: 2/3; /* Linea vertical 2 al 3 */
+        background-image: url(../img/grafico1.png); /* Imagen de fondo */
+        border-radius: 10%;
+    }
+    .grafico__camisas2{
+        grid-row: 8/9; /* Linea vertical 8 al 9 */
+        background-image: url(../img/grafico2.png); /* Imagen de fondo */
+        border-radius: 10%;
+    }
+}
+@media (min-width: 480px){ /* Para tamaños mayores a un telefono = tablet */
+    .grafico__camisas{
+        grid-row: 2/3; /* Fila vertical 2 al 3 */
+        grid-column: 1/3; /* Columna Horizontal 1 al 3 */
+    }
+    .grafico__camisas2{
+        grid-row: 8/9; /* Fila vertical 8 al 9 */
+        grid-column: 1/3; /* Columna Horizontal 1 al 3 */
+    }
+}
+@media (min-width: 768px){ /* Para dispositivos grades = a una laptop o de mayor tamaño */
+    .grafico__camisas2{
+        grid-row: 5/6; /* Fila vertical 5 al 6 */
+        grid-column: 2/4; /* Columna horizontal 2 al 4 */
+    }
+}
+/* Footer **************************************************/
+.footer{
+    background-color: var(--primarioOscuro); /* Color de fondo */
+    padding: 1rem 0 1rem 0; /* Relleno del objeto */
+    margin-top: 2rem; /* Margen superior */
+}
+.footer__texto{
+    font-family: var(--fuentePrincipal); /* Tipo de letra */
+    text-align: center; /* Alineación del texto */
+    font-size: 2.2rem; /* Tamaño de la letra */
+}
+/* Nosotros ***********************************************/
+.nosotros{
+    display: grid; /* Habilitar para colocar en columnas */
+    grid-template-rows: repeat(2, auto); /* Cuantas filas se usan = 2 */
+}
+@media (min-width: 768px){
+    .nosotros{
+        grid-template-columns: repeat(2, 1fr);/* Cuantas columnas se usan = 2 */
+        column-gap: 2rem; /* Espacio entre columnas */
+    }
+}
+.nosotros__imagen{
+    grid-row: 1/2; /* Ubicación de la imagen */
+}
+@media (min-width: 768px){
+    .nosotros__imagen{
+        grid-column: 2/3; /* Ubicación de la patalla */
+    }
+}
+/* Bloques nosotros *************************************/
+.bloques{
+    display: grid; /* Para colocar el contenido en columnas */
+    grid-template-columns: repeat(2, 1fr); /* Para indicar cuantas columnas usar = 2 */
+    gap: 2rem; /* Espacio asignado entre columnas */
+}
+@media (min-width: 768px){
+    .bloques{
+        grid-template-columns: repeat(4, 1fr);/* Cuantas columnas = 4 */
+    }
+}
+.bloque{
+    text-align: center; /* Alineación del texto = centrado */
+}
+.bloque__titulo{
+    margin: 0; /* Margen del titulo = 0 */
+}
+/* Página del producto ************************************************/
+@media (min-width: 768px){
+    .camisa{
+        display: grid; /* Visualización en columnas */
+        grid-template-columns: repeat(2, 1fr); /* Vista en 2 columnas */
+        column-gap: 2rem;/* Espacio entre dos columnas */
+    }
+}
+.formulario{
+    display: grid; /* Visualización en columnas */
+    grid-template-columns: 50% 50%; /* Vista en dos columnas */
+    gap: 2rem; /* Espacio entre columnas */
+}
+.formulario__campo{
+    border: 1rem solid var(--primarioOscuro);/* Borde = linea alrededor del campo */
+    background-color: transparent; /* Usa el color de fondo */
+    font-size: 2rem;/* Tamaño de la letra */
+    font-family: Arial, Helvetica, sans-serif;/* Tipo de letra */
+    padding: 1rem;/* Relleno entre objetos */
+    appearance: none;/* Quita adornos */
+}
+.formulario__submit{
+    background-color: var(--secundario);/* Color de fondo del botón */
+    border: none;/* Quitar borde del botón */
+    font-size: 2rem;/* Tamaño de la letra */
+    font-family: var(--fuentePrincipal); /* Tipo de letra */
+    padding: 2rem; /* Relleno alrededor del elemento */
+    grid-column: 1/3; /* Espacio que abarca el botón */
+    transition: background-color .3s ease;
+}
+.formulario__submit:hover{
+    cursor: pointer; /* Cambia el cursor */
+    background-color: var(--secundarioOscuro); /* Color de fondo */
+}
+.camisa__imagen{
+    width: 100%;
+}
